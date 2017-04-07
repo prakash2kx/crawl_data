@@ -1,0 +1,28 @@
+<style>
+	table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    height: 50px;
+}
+</style>
+
+<h1>Listing Cities</h1></br>
+<%= link_to "Crawl Cities", crawl_cities_path, method: :post %>|
+<%= link_to "Delete All Cities", delete_cities_path, method: :delete %></br></br>
+<%= will_paginate @city%>
+<table>
+	<th>Name</th>
+	<th>Latitude</th>
+	<th>Longitude</th>
+	<%@city.each do |each_obj|%>
+	<tr>
+		<td><%= each_obj.name %></td>
+		<td><%= each_obj.latitude %></td>
+		<td><%= each_obj.longitude %></td>
+	</tr>
+	<%end%>
+</table>
